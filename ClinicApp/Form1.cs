@@ -26,8 +26,8 @@ namespace ClinicApp
         {
             FilClinicTable();
             FillDoctorsTable();
-            comboBox1.DataSource = dt;
-            comboBox1.DisplayMember = "CName";
+            ComboBox1.DataSource = dt;
+            ComboBox1.DisplayMember = "CName";
         }
         private void FilClinicTable()
         {
@@ -61,37 +61,30 @@ namespace ClinicApp
             dtDoctors.Rows.Add(4, "Dr Koteswara Rao", "Cardilogist", "9849707963");
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblClinicName.Text = dt.Rows[comboBox1.SelectedIndex]["CName"].ToString();
-            lblClinicAddrs.Text= dt.Rows[comboBox1.SelectedIndex]["CAddress"].ToString();
-            lblContact.Text = dt.Rows[comboBox1.SelectedIndex]["CContact"].ToString();
-            lblRating.Text= dt.Rows[comboBox1.SelectedIndex]["CRating"].ToString();
+            lblClinicName.Text = dt.Rows[ComboBox1.SelectedIndex]["CName"].ToString();
+            lblClinicAddrs.Text= dt.Rows[ComboBox1.SelectedIndex]["CAddress"].ToString();
+            lblContact.Text = dt.Rows[ComboBox1.SelectedIndex]["CContact"].ToString();
+            lblRating.Text= dt.Rows[ComboBox1.SelectedIndex]["CRating"].ToString();
 
-            dtSpecificClinicDoctors = dtDoctors.Select("CID= " + dt.Rows[comboBox1.SelectedIndex]["CID"]).CopyToDataTable();
-            comboBox2.DataSource = dtSpecificClinicDoctors;
-            comboBox2.DisplayMember = "DName";
+            dtSpecificClinicDoctors = dtDoctors.Select("CID= " + dt.Rows[ComboBox1.SelectedIndex]["CID"]).CopyToDataTable();
+            ComboBox2.DataSource = dtSpecificClinicDoctors;
+            ComboBox2.DisplayMember = "DName";
 
         }
 
-        private void lblContact_Click(object sender, EventArgs e)
+
+        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            lblDoctorName.Text = dtSpecificClinicDoctors.Rows[comboBox2.SelectedIndex]["DName"].ToString();
-            lblDoctorSpeciality.Text = dtSpecificClinicDoctors.Rows[comboBox2.SelectedIndex]["DSpecialty"].ToString();
-            lblDoctorContact.Text = dtSpecificClinicDoctors.Rows[comboBox2.SelectedIndex]["DContact"].ToString();
+            lblDoctorName.Text = dtSpecificClinicDoctors.Rows[ComboBox2.SelectedIndex]["DName"].ToString();
+            lblDoctorSpeciality.Text = dtSpecificClinicDoctors.Rows[ComboBox2.SelectedIndex]["DSpecialty"].ToString();
+            lblDoctorContact.Text = dtSpecificClinicDoctors.Rows[ComboBox2.SelectedIndex]["DContact"].ToString();
 
 
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
