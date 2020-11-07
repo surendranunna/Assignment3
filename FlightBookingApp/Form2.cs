@@ -19,25 +19,25 @@ namespace FlightBookingApp
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            if(Form1.Passport)
+            if(Form1.passport)
             {
                 lblChangeDocNo.Text = "Passport No :";
                 lblChangeDocExpiry.Text = "Passport Expiry Date :";
 
             }
-            if (Form1.IdCard)
+            if(Form1.idCard)
             {
                 lblChangeDocNo.Text = "Id Card No :";
                 lblChangeDocExpiry.Text = "Id Card Expiry Date :";
 
             }
-            lblFullName.Text = Form1.FirstName + " " + Form1.LastName;
-            lblDepatureCity.Text = Form1.From;
-            lblDestinationCity.Text = Form1.To;
-            lblTripDates.Text = Form1.StartTripDate + "  to " + Form1.EndTripDate;
-            lblDocNo.Text = Form1.DocumentNo;
-            lblDocExpiryDate.Text = Form1.ExpiryDate;
-            lblBagWeight.Text = Form1.WeightBaggage;
+            lblFullName.Text = Form1.firstName + " " + Form1.lastName;
+            lblDepatureCity.Text = Form1.from;
+            lblDestinationCity.Text = Form1.to;
+            lblTripDates.Text = Form1.startTripDate + "  to " + Form1.endTripDate;
+            lblDocNo.Text = Form1.documentNo;
+            lblDocExpiryDate.Text = Form1.expiryDate;
+            lblBagWeight.Text = Form1.weightBaggage;
 
         }
 

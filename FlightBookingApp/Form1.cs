@@ -12,67 +12,57 @@ namespace FlightBookingApp
 {
     public partial class Form1 : Form
     {
-        public static Boolean Passport, IdCard;
-        public static string To, From, StartTripDate, EndTripDate, FirstName, LastName, DocumentNo, IsuueDate, ExpiryDate, WeightBaggage;
+        public static Boolean passport, idCard;
+        public static string to, from, startTripDate, endTripDate, firstName, lastName, documentNo, isuueDate, expiryDate, weightBaggage;
         public Form1()
         {
-            InitializeComponent();
+           InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void Rdb_CheckedChanged(object sender, EventArgs e)
         {
-           
-
-
-        }
-
-        private void rdb_CheckedChanged(object sender, EventArgs e)
-        {
-            if(rdb.Checked)
+            if(Rdb.Checked)
             {
                 lblDocNo.Text = "Passport No :";
                 lblDocExpiryDate.Text = "Passport Expiry Date :";
                 lblDocIssueDate.Text = "Passport Issue Date :";
-                Passport = true;
+                passport = true;
             }
             else
             {
-                Passport = false;
+                passport = false;
             }
 
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            DateTime dt = dateTimePicker1.Value;
-            dateTimePicker2.MinDate = dt;
+            DateTime dt = DateTimePicker1.Value;
+            DateTimePicker2.MinDate = dt;
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            monthCalendar1.MaxSelectionCount = 100;
-            monthCalendar1.ShowToday = true;
-            numericUpDown1.Increment = 5;
-            numericUpDown1.ReadOnly = true;
+            MonthCalendar1.MaxSelectionCount = 100;
+            MonthCalendar1.ShowToday = true;
+            NumericUpDown1.Increment = 5;
+            NumericUpDown1.ReadOnly = true;
         }
 
-        private void btnBookNow_Click(object sender, EventArgs e)
+        private void BtnBookNow_Click(object sender, EventArgs e)
         {
-            To = txtTo.Text;
-            From = txtFrom.Text;
-            StartTripDate = monthCalendar1.SelectionStart.ToString("dd MMM yyyy");
-            EndTripDate = monthCalendar1.SelectionEnd.ToString("dd MMM yyyy");
-            FirstName = txtFirstName.Text;
-            LastName = txtLastName.Text;
-            DocumentNo = txtDocNo.Text;
-            IsuueDate = dateTimePicker1.Value.ToString("dd MMM yyyy");
-            ExpiryDate = dateTimePicker2.Value.ToString("dd MMM yyyy");
-            WeightBaggage = numericUpDown1.Value.ToString();
+            to = TxtTo.Text;
+            from = TxtFrom.Text;
+            startTripDate = MonthCalendar1.SelectionStart.ToString("dd MMM yyyy");
+            endTripDate = MonthCalendar1.SelectionEnd.ToString("dd MMM yyyy");
+            firstName = TxtFirstName.Text;
+            lastName = TxtLastName.Text;
+            documentNo = TxtDocNo.Text;
+            isuueDate = DateTimePicker1.Value.ToString("dd MMM yyyy");
+            expiryDate = DateTimePicker2.Value.ToString("dd MMM yyyy");
+            weightBaggage = NumericUpDown1.Value.ToString();
 
             this.Hide();
             Form2 f2 = new Form2();
@@ -80,18 +70,18 @@ namespace FlightBookingApp
 
         }
 
-        private void rdbIdCard_CheckedChanged(object sender, EventArgs e)
+        private void RdbIdCard_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdbIdCard.Checked)
+            if(RdbIdCard.Checked)
             {
                 lblDocNo.Text = "Id Card No :";
                 lblDocExpiryDate.Text = "Id Card Expiry Date :";
                 lblDocIssueDate.Text = "Id Card Issue Date :";
-                IdCard = true;
+                idCard = true;
             }
             else
             {
-                IdCard = false;
+                idCard = false;
             }
 
         }
